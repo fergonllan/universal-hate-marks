@@ -51,6 +51,51 @@ export const homeBlocks: HomeBlock[] = [
   },
 ];
 
+export const socialFocusHighlights = [
+  {
+    title: "Protección de comunidades vulneradas",
+    body: "El foco inicial es reducir exposición y naturalización de lenguaje de odio en la esfera digital.",
+  },
+  {
+    title: "Debate público más sano",
+    body: "La herramienta busca elevar calidad discursiva con evidencia, no con censura automática.",
+  },
+  {
+    title: "Respuesta colectiva y transparente",
+    body: "Las reglas se diseñan y validan de forma descentralizada para evitar arbitrariedad.",
+  },
+];
+
+export const nonTechUsageSteps = [
+  {
+    title: "1. La comunidad detecta casos",
+    body: "Personas y organizaciones señalan contenidos o patrones preocupantes.",
+  },
+  {
+    title: "2. La DAO convierte casos en reglas",
+    body: "Equipos lingüísticos proponen, debaten y votan reglas claras.",
+  },
+  {
+    title: "3. Se publican resultados comprensibles",
+    body: "El sistema comunica hallazgos con trazabilidad metodológica.",
+  },
+];
+
+export const complexityLadders = [
+  {
+    level: "Nivel 1 · Social",
+    summary: "Qué mejora: menos normalización del odio y más evidencia para la conversación pública.",
+  },
+  {
+    level: "Nivel 2 · Operativo",
+    summary: "Cómo se usa: propuesta de regla, votación, ejecución analítica y comunicación.",
+  },
+  {
+    level: "Nivel 3 · Técnico",
+    summary: "Cómo funciona: contratos inteligentes, oráculos, consenso y registro blockchain.",
+  },
+];
+
 export type EvidenceStat = {
   value: string;
   label: string;

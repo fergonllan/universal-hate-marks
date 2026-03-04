@@ -1,13 +1,34 @@
 ﻿import Link from "next/link";
+import { HomePrimer } from "@/components/home-primer";
 import { HomeTechnicalDiagrams } from "@/components/home-technical-diagrams";
 import { evidenceStats, homeBlocks, operationalPillars, siteMeta } from "@/content/site-content";
 
 export default function Home() {
   return (
     <>
-      <section className="hero hero-executive">
+      <HomePrimer />
+
+      <section className="panel home-anchor-nav">
+        <p className="kicker">Ruta de lectura</p>
+        <div className="quick-links">
+          <a href="#primer" className="quick-link">
+            Entender rápido
+          </a>
+          <a href="#impacto" className="quick-link">
+            Impacto social
+          </a>
+          <a href="#operativa" className="quick-link">
+            Operativa
+          </a>
+          <a href="#tecnico" className="quick-link">
+            Nivel técnico
+          </a>
+        </div>
+      </section>
+
+      <section className="hero hero-executive" id="impacto">
         <div>
-          <p className="kicker">Proyecto académico con enfoque comercial</p>
+          <p className="kicker">Proyecto académico · cívico · tecnológico</p>
           <h2>{siteMeta.projectFormalTitle}</h2>
           <p>
             DAO-Ling propone una infraestructura descentralizada para diseñar, validar
@@ -36,7 +57,7 @@ export default function Home() {
         ))}
       </section>
 
-      <section className="panel">
+      <section className="panel" id="operativa">
         <p className="kicker">Pilares operativos</p>
         <div className="grid-cards">
           {operationalPillars.map((pillar) => (
@@ -48,7 +69,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section>
+      <section id="tecnico">
         <p className="kicker">Esquemas técnicos de operación blockchain</p>
         <HomeTechnicalDiagrams />
       </section>

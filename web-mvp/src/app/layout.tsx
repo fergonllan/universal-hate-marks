@@ -33,7 +33,7 @@ export default function RootLayout({
             <p className="eyebrow">Tesis de máster</p>
             <div className="brand-row">
               <h1 className="site-title">{siteMeta.projectShortName}</h1>
-              <span className="brand-badge">Research Project</span>
+              <span className="brand-badge">Civic Tech Research</span>
             </div>
             <p className="site-subtitle">{siteMeta.subtitle}</p>
             <MainNav />
