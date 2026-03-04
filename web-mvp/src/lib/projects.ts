@@ -21,7 +21,7 @@ async function readData(): Promise<Project[]> {
   try {
     const content = await fs.readFile(dataFile, "utf-8");
     return JSON.parse(content) as Project[];
-  } catch (e) {
+  } catch {
     // if file missing or malformed, start with empty
     return [];
   }
