@@ -12,9 +12,18 @@ type MatchFragment = {
 };
 
 const presetTexts = [
-  "Un mensaje repite que cierto grupo no pertenece aquí y que siempre arruina todo.",
-  "La comunidad detecta una frase que culpa a un colectivo completo por un problema social.",
-  "Texto neutral: se convoca a debatir reglas y registrar hallazgos sin activar lenguaje hostil.",
+  {
+    label: "Ejemplo con exclusión",
+    text: "Un mensaje repite que cierto grupo no pertenece aquí y que siempre arruina todo.",
+  },
+  {
+    label: "Ejemplo con culpa colectiva",
+    text: "La comunidad detecta una frase que culpa a un colectivo completo por un problema social.",
+  },
+  {
+    label: "Ejemplo neutral",
+    text: "Texto neutral: se convoca a debatir reglas y registrar hallazgos sin activar lenguaje hostil.",
+  },
 ];
 
 function escapeRegExp(value: string) {
@@ -78,7 +87,7 @@ function renderHighlightedText(text: string, matches: MatchFragment[]) {
 }
 
 export function ProtocolDemo() {
-  const [text, setText] = useState(presetTexts[0]);
+  const [text, setText] = useState(presetTexts[0].text);
   const [running, setRunning] = useState(false);
   const [step, setStep] = useState(0);
 
@@ -120,53 +129,53 @@ export function ProtocolDemo() {
     setRunning(false);
   }
 
+  const summaryText =
+    matchedRules.length === 0
+      ? "El texto no activa reglas del set demo y se clasifica como ejemplo neutral."
+      : `La demo detecta ${matchedRules.length} regla(s) activada(s) y resalta exactamente qué fragmentos explican el resultado.`;
+
   return (
     <section className="panel stack-lg protocol-demo-shell">
       <div className="protocol-demo-head">
         <div>
           <p className="kicker">Simulador del protocolo</p>
-          <h2>Demo visual de detección y consenso</h2>
+          <h2>Demo simple de lectura y marcado</h2>
           <p>
-            En vez de mostrar sólo etapas abstractas, esta demo toma un texto breve,
-            encuentra fragmentos problemáticos y muestra cómo la propuesta DAO-Ling
-            los transformaría en un hallazgo explicable.
+            Elegí un ejemplo o escribí un texto breve. La demo resalta fragmentos que
+            activarían reglas y muestra cómo eso se traduciría en una salida comprensible.
           </p>
         </div>
-        <div className="demo-badges" aria-label="Capacidades del demo">
-          <span>Detección de fragmentos</span>
-          <span>Reglas activadas</span>
-          <span>Salida pública legible</span>
-        </div>
+      </div>
+
+      <div className="demo-preset-row" aria-label="Ejemplos de texto">
+        {presetTexts.map((preset) => (
+          <button
+            key={preset.label}
+            type="button"
+            className={`ghost-btn demo-preset-btn ${text === preset.text ? "demo-preset-btn-on" : ""}`}
+            onClick={() => setText(preset.text)}
+          >
+            {preset.label}
+          </button>
+        ))}
       </div>
 
       <div className="protocol-demo-grid">
         <div className="demo-control-panel">
           <label className="input-label" htmlFor="demo-text">
-            Texto de prueba
+            Probá con una frase corta
           </label>
           <textarea
             id="demo-text"
             className="text-input demo-textarea"
             rows={5}
             value={text}
+            placeholder="Ejemplo: un mensaje culpa a todo un grupo por un problema social"
             onChange={(event) => setText(event.target.value)}
           />
 
-          <div className="demo-preset-row" aria-label="Ejemplos de texto">
-            {presetTexts.map((preset) => (
-              <button
-                key={preset}
-                type="button"
-                className={`ghost-btn demo-preset-btn ${text === preset ? "demo-preset-btn-on" : ""}`}
-                onClick={() => setText(preset)}
-              >
-                Usar ejemplo
-              </button>
-            ))}
-          </div>
-
           <button type="button" className="primary-btn" onClick={runFlow} disabled={running}>
-            {running ? "Analizando demo..." : "Ejecutar demo"}
+            {running ? "Leyendo texto..." : "Ver demo"}
           </button>
 
           <p className="demo-status-copy">{flowStatus}</p>
@@ -175,37 +184,25 @@ export function ProtocolDemo() {
         <div className="demo-visual-panel">
           <div className="demo-preview-card">
             <div className="demo-preview-head">
-              <h3>Lectura del texto</h3>
-              <span>{matches.length} fragmentos detectados</span>
+              <h3>Texto analizado</h3>
+              <span>{matches.length} marcas</span>
             </div>
             {renderHighlightedText(text, matches)}
           </div>
 
-          <div className="demo-signal-grid">
-            <article className="demo-mini-card">
-              <p className="diagram-label">Fragmentos marcados</p>
-              {detectedTokens.length === 0 ? (
-                <p className="muted">Sin coincidencias en este ejemplo.</p>
-              ) : (
-                <div className="chip-row">
-                  {detectedTokens.map((token) => (
-                    <span key={token} className="chip chip-solid">
-                      {token}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </article>
-
-            <article className="demo-mini-card">
-              <p className="diagram-label">Resultado comunicable</p>
-              <p>
-                {matchedRules.length === 0
-                  ? "El texto no activa reglas del set demo y se clasifica como ejemplo neutral."
-                  : `El sistema explicaría ${matchedRules.length} regla(s) activada(s) con trazabilidad de fragmentos y criterios.`}
-              </p>
-            </article>
-          </div>
+          <article className="demo-mini-card demo-summary-card">
+            <p className="diagram-label">Qué muestra esta demo</p>
+            <p>{summaryText}</p>
+            {detectedTokens.length > 0 && (
+              <div className="chip-row">
+                {detectedTokens.map((token) => (
+                  <span key={token} className="chip chip-solid">
+                    {token}
+                  </span>
+                ))}
+              </div>
+            )}
+          </article>
         </div>
       </div>
 
@@ -226,14 +223,13 @@ export function ProtocolDemo() {
       </ol>
 
       <div className="rule-box">
-        <h3>Reglas activadas por el ejemplo</h3>
+        <h3>Reglas activadas</h3>
         {matchedRules.length === 0 ? (
-          <p>No se activaron reglas en este ejemplo. Eso también es útil: permite comparar señales reales contra texto neutro.</p>
+          <p>No se activaron reglas en este ejemplo. Eso también sirve para mostrar cómo distinguir texto neutro de señales problemáticas.</p>
         ) : (
           <div className="vote-grid">
             {matchedRules.map((rule) => (
               <article key={rule.id} className="vote-card demo-rule-card">
-                <p className="diagram-label">Regla activa</p>
                 <h4>{rule.title}</h4>
                 <p>{rule.description}</p>
               </article>
