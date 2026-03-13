@@ -1,6 +1,14 @@
-﻿import { faqItems } from "@/content/site-content";
+import { faqItems } from "@/content/site-content";
 
 const categories = [...new Set(faqItems.map((item) => item.category))];
+
+function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, "-");
+}
 
 export default function FaqPage() {
   return (
@@ -14,25 +22,35 @@ export default function FaqPage() {
         </p>
       </section>
 
-      <section className="panel">
+      <section className="panel sticky top-24 z-20 background-blur border-b border-emerald-900/40">
         <div className="chip-row">
           {categories.map((category) => (
-            <span className="chip" key={category}>
+            <a href={`#${slugify(category)}`} className="chip hover:scale-105 transition-transform hover:border-emerald-500/50 hover:text-emerald-300" key={category}>
               {category}
-            </span>
+            </a>
           ))}
         </div>
       </section>
 
-      <section className="faq-list">
-        {faqItems.map((item) => (
-          <article className="faq-item" key={item.question}>
-            <p className="kicker">{item.category}</p>
-            <h3>{item.question}</h3>
-            <p>{item.answer}</p>
-          </article>
-        ))}
-      </section>
+      <div className="stack-lg mt-8">
+        {categories.map((category) => {
+          const catItems = faqItems.filter(item => item.category === category);
+          return (
+            <section key={category} id={slugify(category)} className="scroll-mt-32">
+              <h3 className="section-title-sm mb-4 pb-2 border-b border-line text-emerald-100">{category}</h3>
+              <div className="faq-list">
+                {catItems.map((item) => (
+                  <article className="faq-item" key={item.question}>
+                    <p className="kicker">{item.category}</p>
+                    <h3 className="text-white text-lg font-medium">{item.question}</h3>
+                    <p className="mt-2 text-[#9db2ad] leading-relaxed">{item.answer}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          );
+        })}
+      </div>
     </>
   );
 }
