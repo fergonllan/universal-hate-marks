@@ -2,6 +2,7 @@
 import { Manrope, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { MainNav } from "@/components/main-nav";
+import { SiteHeaderCopy } from "@/components/site-header-copy";
 import { siteMeta } from "@/content/site-content";
 
 const manrope = Manrope({
@@ -30,19 +31,7 @@ export default function RootLayout({
         <div className="background-layer" aria-hidden />
         <header className="site-header">
           <div className="content-wrap site-header-inner">
-            <div className="site-header-copy">
-              <p className="eyebrow">Tesis de máster</p>
-              <div className="brand-row">
-                <h1 className="site-title">{siteMeta.projectShortName}</h1>
-                <span className="brand-badge">Civic Tech Research</span>
-              </div>
-              <p className="site-subtitle">{siteMeta.subtitle}</p>
-              <div className="site-meta-row" aria-label="Contexto académico del proyecto">
-                <span>{siteMeta.author}</span>
-                <span>{siteMeta.faculty}</span>
-                <span>{siteMeta.year}</span>
-              </div>
-            </div>
+            <SiteHeaderCopy />
             <MainNav />
           </div>
         </header>

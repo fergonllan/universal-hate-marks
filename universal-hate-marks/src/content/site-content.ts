@@ -21,31 +21,31 @@ export type HomeBlock = {
 export const homeBlocks: HomeBlock[] = [
   {
     title: "Problema",
-    body: "La circulación de discursos de odio en contenidos virtuales escala más rápido que los mecanismos de respuesta institucional.",
+    body: "El discurso de odio en entornos digitales crece más rápido de lo que los sistemas de respuesta actuales pueden seguir.",
     kpiLabel: "Urgencia",
     kpiValue: "Alta",
   },
   {
     title: "Propuesta",
-    body: "Una DAO de especialistas en lenguaje que diseña reglas discursivas auditables para detectar patrones de odio.",
+    body: "Una organización de especialistas en lenguaje que diseña y valida reglas para detectar patrones de odio, de forma abierta y sin jerarquías.",
     kpiLabel: "Modelo",
-    kpiValue: "DAO lingüística",
+    kpiValue: "Comunidad experta",
   },
   {
     title: "Mecánica",
-    body: "Propuesta, debate, votación y registro en blockchain para construir un algoritmo de consenso transparente.",
+    body: "Alguien propone una regla, el grupo la debate y vota, y si se aprueba queda registrada de forma permanente para ser usada en análisis.",
     kpiLabel: "Flujo",
     kpiValue: "6 etapas",
   },
   {
     title: "Incentivos",
-    body: "Economía interna con recompensas para creación, mejora y uso de reglas en beneficio del sistema.",
+    body: "Quienes contribuyen al sistema —creando reglas, mejorándolas o evaluando casos— reciben reconocimiento dentro del ecosistema.",
     kpiLabel: "Participación",
-    kpiValue: "Tokenizada",
+    kpiValue: "Por logros",
   },
   {
     title: "Salida",
-    body: "Publicación de hallazgos y reportes para visibilizar la realidad discursiva y promover conciencia pública.",
+    body: "El sistema publica hallazgos en formatos comprensibles para que cualquier persona, no solo especialistas, pueda entender los resultados.",
     kpiLabel: "Impacto",
     kpiValue: "Comunicación social",
   },
@@ -84,15 +84,15 @@ export const nonTechUsageSteps = [
 export const complexityLadders = [
   {
     level: "Nivel 1 · Social",
-    summary: "Qué mejora: menos normalización del odio y más herramientas para convivencia democrática.",
+    summary: "Qué mejora: menos normalización del odio y más herramientas concretas para la convivencia democrática.",
   },
   {
     level: "Nivel 2 · Operativo",
-    summary: "Cómo se usa: propuesta de regla, votación, ejecución analítica y comunicación pública.",
+    summary: "Cómo se usa: alguien propone una regla, el grupo vota, y el resultado se usa para analizar contenidos y comunicarlo.",
   },
   {
     level: "Nivel 3 · Técnico",
-    summary: "Cómo funciona: contratos inteligentes, oráculos, consenso y registro verificable en blockchain.",
+    summary: "Cómo funciona por dentro: código que ejecuta reglas automáticamente, fuentes de datos externas, acuerdo colectivo y registro permanente en blockchain.",
   },
 ];
 
@@ -121,21 +121,21 @@ export const evidenceStats: EvidenceStat[] = [
 ];
 
 export const executiveSummary = [
-  "La tesis diseña una Organización Autónoma Descentralizada orientada al análisis de discurso de odio mediante reglas lingüísticas revisadas por pares.",
-  "El enfoque combina teoría del discurso, gobernanza distribuida y trazabilidad blockchain para crear un proceso verificable de toma de decisiones.",
-  "Las reglas propuestas por lingüistas y comunidad se debaten y votan; las aprobadas se registran como parte de un algoritmo de consenso.",
-  "La arquitectura no depende de una autoridad central y prioriza transparencia, seguridad operativa y acceso público a resultados.",
-  "El modelo incluye incentivos tokenizados para sostener participación y mejora continua en la construcción de reglas.",
-  "El objetivo final es doble: producir inteligencia discursiva útil y comunicar hallazgos con impacto social.",
+  "La tesis diseña una organización descentralizada —sin dueño ni autoridad central— donde especialistas en lenguaje crean y validan reglas para identificar discurso de odio.",
+  "El proceso combina lingüística, gobernanza abierta y blockchain (un registro permanente e inalterable) para que cada decisión sea verificable por cualquiera.",
+  "Cuando una regla se propone, el grupo la debate y vota. Si se aprueba, queda registrada y disponible para analizar contenidos reales.",
+  "Al no depender de una institución única, el sistema es más difícil de capturar o sesgar por intereses particulares.",
+  "Quienes participan —creando reglas, mejorándolas o evaluando casos— reciben reconocimiento dentro del sistema para que la colaboración sea sostenible en el tiempo.",
+  "El resultado no es solo técnico: el sistema comunica sus hallazgos en formatos que cualquier persona puede leer y usar.",
 ];
 
 export const researchObjectives = {
   general:
-    "Diseñar la estrategia para crear una DAO, soportada por blockchain, capaz de identificar discursos de odio en medios y redes mediante algoritmos de consenso, generando reportes y visibilización pública.",
+    "Diseñar una organización descentralizada —basada en blockchain— que pueda identificar discurso de odio en medios y redes sociales, tomando decisiones colectivas y publicando sus resultados de forma comprensible.",
   secondary: [
-    "Evaluar si blockchain habilita el almacenamiento de reglas lingüísticas reutilizables.",
-    "Diseñar procesos internos para descentralización organizativa e incentivos económicos sostenibles.",
-    "Desarrollar un prototipo funcional de DAO conforme a la estructura propuesta.",
+    "Explorar si blockchain permite almacenar y reutilizar reglas lingüísticas de forma verificable.",
+    "Definir cómo organizar internamente una estructura sin jerarquías fijas y con incentivos que mantengan la participación activa.",
+    "Construir un prototipo funcional que demuestre la propuesta en la práctica.",
   ],
 };
 
@@ -161,31 +161,31 @@ export const operationalPillars: OperationalPillar[] = [
   {
     title: "Comunidad",
     summary:
-      "La DAO integra nodos lingüistas y comunidad ampliada para detectar casos prioritarios, debatir y proponer reglas.",
+      "La organización reúne expertos lingüísticos y personas de la comunidad general para detectar casos, debatir y proponer reglas.",
     highlights: [
-      "Participación de especialistas y ciudadanía interpelada por la temática.",
-      "Foros y votaciones para elevar casos relevantes a lingüistas.",
-      "Retroalimentación continua entre reglas técnicas y demandas sociales.",
+      "Especialistas y ciudadanía trabajan juntos sobre el mismo problema.",
+      "Foros y votaciones para priorizar qué casos analizar primero.",
+      "Las reglas técnicas se ajustan según las necesidades reales de la comunidad.",
     ],
   },
   {
     title: "Operabilidad",
     summary:
-      "Cada bloque incorpora reglas discursivas validadas; su acumulación forma un algoritmo de consenso para análisis de contenidos.",
+      "Cada regla aprobada queda registrada y disponible para analizar contenidos. La acumulación de reglas forma el núcleo analítico del sistema.",
     highlights: [
-      "Aplicación inicial enfocada en idioma español e hispanohablantes.",
-      "Capacidad de analizar medios, redes, foros y materiales públicos en línea.",
-      "Comunicación de resultados como parte central del protocolo.",
+      "Diseñado primero para español e hispanohablantes.",
+      "Puede analizar medios, redes sociales, foros y publicaciones públicas.",
+      "Publicar los resultados es parte esencial del proceso, no un extra.",
     ],
   },
   {
     title: "Incentivos",
     summary:
-      "La economía interna premia creación, revisión y uso efectivo de reglas para sostener participación y calidad.",
+      "El sistema recompensa a quienes contribuyen: crear reglas, mejorar las existentes o aportar casos útiles tiene reconocimiento dentro del ecosistema.",
     highlights: [
-      "Tokens por proponer reglas y mejorar reglas existentes.",
-      "Tokens por propuestas comunitarias que se convierten en reglas operativas.",
-      "Diseño económico orientado a continuidad y escalabilidad del sistema.",
+      "Recompensas por proponer y refinar reglas.",
+      "También para contribuciones comunitarias que se vuelven reglas activas.",
+      "El diseño busca que el sistema sea sostenible en el tiempo, no solo funcional al principio.",
     ],
   },
 ];
@@ -208,7 +208,7 @@ export type FaqCategory =
   | "Marco teórico"
   | "Operación DAO"
   | "Gobernanza y voto"
-  | "Incentivos y tokenomics"
+  | "Incentivos y economía interna"
   | "Ética y límites"
   | "Escalabilidad";
 
@@ -298,19 +298,19 @@ export const faqItems: FaqItem[] = [
       "Se conservan con historial argumental para revisión futura y mejora iterativa.",
   },
   {
-    category: "Incentivos y tokenomics",
+    category: "Incentivos y economía interna",
     question: "¿Por qué incorporar incentivos económicos?",
     answer:
       "Para sostener participación especializada en el tiempo y recompensar aportes de valor dentro de la DAO.",
   },
   {
-    category: "Incentivos y tokenomics",
+    category: "Incentivos y economía interna",
     question: "¿Qué acciones reciben tokens según la tesis?",
     answer:
       "Creación de reglas, mejoras sobre reglas existentes, propuestas comunitarias útiles y uso efectivo de reglas en análisis.",
   },
   {
-    category: "Incentivos y tokenomics",
+    category: "Incentivos y economía interna",
     question: "¿La economía interna reemplaza motivación social?",
     answer:
       "No. Se plantea como complemento para continuidad operativa y no como sustituto del compromiso social.",
@@ -373,12 +373,12 @@ export const phases: Phase[] = [
     id: "Fase 1",
     title: "Estrategia inicial",
     focus:
-      "Diseño del modelo DAO, estructura de nodos, tokenomics, reglas y prototipo técnico de prueba.",
+      "Diseño del modelo, estructura de participantes, reglas de incentivos (tokenomics) y prototipo técnico de prueba.",
     milestones: [
-      "Niveles de la DAO, oráculos y flujo operacional",
+      "Niveles de la organización, conexiones con fuentes externas (oráculos) y flujo operacional",
       "Plan de nodos y descentralización",
       "Plan de comunicación inicial",
-      "Tokenomics, gobernanza y contingencias",
+      "Sistema de incentivos, gobernanza y contingencias",
       "Generación de reglas y proceso de evaluación",
     ],
     deliverables: [
@@ -805,20 +805,20 @@ export const guideTopics: GuideTopic[] = [
     id: "05-smart-contracts",
     title: "Contratos inteligentes",
     summary:
-      "Los acuerdos de gobernanza y recompensas se formalizan en contratos ejecutables, minimizando arbitrariedad operativa.",
+      "Los contratos inteligentes son fragmentos de código que ejecutan condiciones automáticamente —sin que nadie intervenga— cuando se cumplen ciertos criterios. Aquí formalizan votaciones, umbrales y recompensas.",
     bullets: [
-      "Definen lógica de votación y umbrales de aceptación.",
-      "Automatizan reglas de incentivos y registro.",
+      "Definen qué porcentaje de votos hace falta para aprobar una regla.",
+      "Distribuyen reconocimientos automáticamente sin intermediarios.",
     ],
   },
   {
     id: "06-oraculos",
-    title: "Oráculos y entrada de datos",
+    title: "Conexión con el mundo exterior (oráculos)",
     summary:
-      "Los oráculos conectan la DAO con fuentes externas de contenido para activar análisis sin comprometer trazabilidad.",
+      "Un oráculo es un puente entre la organización y fuentes de datos externas. Sin oráculos, el sistema no podría leer contenidos de redes sociales o medios para analizarlos.",
     bullets: [
-      "Integran eventos o datasets fuera de la cadena.",
-      "Habilitan ejecución sobre canales priorizados.",
+      "Traen datos del exterior al sistema de forma verificable.",
+      "Permiten activar análisis sobre los canales priorizados por votación.",
     ],
   },
   {
@@ -833,22 +833,22 @@ export const guideTopics: GuideTopic[] = [
   },
   {
     id: "08-algoritmo-consenso",
-    title: "Algoritmo de consenso",
+    title: "Cómo se toman decisiones colectivas",
     summary:
-      "No depende de un actor central; se alimenta del acuerdo entre participantes y del desempeño de reglas en contexto.",
+      "No hay nadie que decida solo. El sistema funciona por acuerdo entre participantes: una regla entra cuando suficientes personas la aprueban, y se ajusta si el contexto cambia.",
     bullets: [
-      "Convergencia por votación distribuida.",
-      "Ajuste iterativo ante nuevos escenarios discursivos.",
+      "Decisiones por votación distribuida, sin autoridad central.",
+      "Las reglas evolucionan a medida que aparecen nuevos patrones de discurso.",
     ],
   },
   {
     id: "09-tokenomics",
-    title: "Tokenomics e incentivos",
+    title: "Economía de incentivos (tokenomics)",
     summary:
-      "El modelo económico premia aportes útiles para sostener participación y mejora técnica del sistema.",
+      "Tokenomics es el diseño económico del sistema: quién recibe qué, cuándo y por qué. Aquí define cómo se recompensa a quienes participan para que el sistema siga funcionando sin depender de voluntarismo.",
     bullets: [
-      "Tokens por crear, refinar y activar reglas.",
-      "Incentivos también para contribuciones comunitarias.",
+      "Recompensas por crear, mejorar y activar reglas.",
+      "También para aportes comunitarios que resultan útiles.",
     ],
   },
   {
@@ -903,9 +903,9 @@ export const guideTopics: GuideTopic[] = [
   },
   {
     id: "15-escalabilidad",
-    title: "Escalabilidad futura",
+    title: "Crecer a otros idiomas y contextos",
     summary:
-      "La metodología puede extenderse a otros idiomas y dominios, manteniendo gobernanza y validación adaptadas al contexto.",
+      "El diseño puede aplicarse más allá del español, pero requiere reconstruir el proceso lingüístico en cada nuevo idioma y contexto. No es copiar y pegar: hay que validar desde cero.",
     bullets: [
       "Requiere nuevos marcos lingüísticos por idioma.",
       "Puede adaptarse a otros conflictos de lenguaje público.",

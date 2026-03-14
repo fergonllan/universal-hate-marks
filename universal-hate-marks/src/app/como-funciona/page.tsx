@@ -1,17 +1,14 @@
 ﻿import { DaoDiagrams } from "@/components/dao-diagrams";
 import { ProtocolDemo } from "@/components/protocol-demo";
 import { flowSteps, operationalPillars } from "@/content/site-content";
+import { PageFooterCta } from "@/components/page-footer-cta";
 
 export default function ComoFuncionaPage() {
   return (
     <>
-      <section className="hero">
+      <section className="hero hero-page">
         <p className="kicker">Flujo operacional</p>
         <h2>Cómo opera la propuesta DAO-Ling</h2>
-        <p>
-          El sistema combina gobernanza distribuida y ejecución técnica para
-          transformar propuestas discursivas en resultados analíticos comunicables.
-        </p>
       </section>
 
       <section className="panel panel-highlight">
@@ -54,6 +51,12 @@ export default function ComoFuncionaPage() {
       </section>
 
       <ProtocolDemo />
+
+      <PageFooterCta links={[
+        { href: "/guia", label: "Guía en 15 puntos" },
+        { href: "/mapa", label: "Mapa de grupos" },
+        { href: "/fases", label: "Roadmap de fases" },
+      ]} />
     </>
   );
 }

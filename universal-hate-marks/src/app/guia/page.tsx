@@ -1,20 +1,20 @@
-import { guideTopics, siteMeta } from "@/content/site-content";
+import { guideTopics } from "@/content/site-content";
+import { PageFooterCta } from "@/components/page-footer-cta";
 
 export default function GuiaPage() {
   return (
     <>
-      <section className="hero">
+      <section className="hero hero-page">
         <p className="kicker">Guía del proyecto</p>
-        <h2>Manual resumido estilo GitBook</h2>
-        <p>
-          Esta sección reúne en 15 puntos los elementos centrales de {siteMeta.projectShortName}:
-          arquitectura, operación, gobernanza, economía e impacto.
-        </p>
+        <h2>Todo el proyecto en 15 puntos</h2>
       </section>
 
       <section className="guide-layout">
         <aside className="panel guide-index">
-          <p className="kicker">Índice</p>
+          <div className="guide-index-head">
+            <p className="kicker">Índice</p>
+            <span className="guide-total-badge">{guideTopics.length} puntos</span>
+          </div>
           <ol>
             {guideTopics.map((topic) => (
               <li key={topic.id}>
@@ -27,7 +27,7 @@ export default function GuiaPage() {
         <div className="guide-content">
           {guideTopics.map((topic, idx) => (
             <article key={topic.id} id={topic.id} className="panel guide-topic">
-              <p className="kicker">Punto {idx + 1}</p>
+              <p className="kicker">Punto {idx + 1} <span className="guide-progress-badge">/ {guideTopics.length}</span></p>
               <h3>{topic.title}</h3>
               <p>{topic.summary}</p>
               <ul className="plain-list">
@@ -39,6 +39,12 @@ export default function GuiaPage() {
           ))}
         </div>
       </section>
+
+      <PageFooterCta links={[
+        { href: "/como-funciona", label: "Cómo funciona" },
+        { href: "/faq", label: "Preguntas frecuentes" },
+        { href: "/mapa", label: "Mapa de grupos" },
+      ]} />
     </>
   );
 }

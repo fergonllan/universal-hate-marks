@@ -6,18 +6,14 @@
   researchQuestions,
   siteMeta,
 } from "@/content/site-content";
+import { PageFooterCta } from "@/components/page-footer-cta";
 
 export default function ResumenPage() {
   return (
     <>
-      <section className="hero">
+      <section className="hero hero-page">
         <p className="kicker">Resumen para jurado y público general</p>
         <h2>Idea general del proyecto</h2>
-        <p>
-          La tesis plantea una DAO de especialistas en análisis del discurso para
-          construir reglas lingüísticas, votarlas y registrarlas en blockchain con
-          foco en detección y visibilización de discursos de odio.
-        </p>
       </section>
 
       <section className="panel stack-md">
@@ -91,6 +87,12 @@ export default function ResumenPage() {
           <strong>Facultad:</strong> {siteMeta.faculty}
         </p>
       </section>
+
+      <PageFooterCta links={[
+        { href: "/como-funciona", label: "Cómo funciona" },
+        { href: "/guia", label: "Guía en 15 puntos" },
+        { href: "/faq", label: "Preguntas frecuentes" },
+      ]} />
     </>
   );
 }

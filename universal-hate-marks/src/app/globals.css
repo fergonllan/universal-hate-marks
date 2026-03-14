@@ -18,6 +18,11 @@
   --shadow: rgba(0, 5, 8, 0.6);
   --glass-bg: rgba(8, 16, 13, 0.95);
   --glass-border: rgba(114, 215, 176, 0.12);
+  /* spacing tokens */
+  --radius-card: 1.25rem;
+  --radius-panel: 1.5rem;
+  --header-height: 4.5rem;
+  --header-height-full: 8.5rem;
 }
 
 @theme inline {
@@ -66,6 +71,13 @@ ol {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* Keyboard focus indicator (WCAG 2.1 AA) */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 /* Dynamic Background Layer */
@@ -117,6 +129,15 @@ a {
   align-items: center;
   gap: 1.5rem;
   flex-wrap: wrap;
+}
+
+/* Compact header on sub-pages (no subtitle/meta row) */
+.site-header--compact {
+  padding: 0.55rem 0;
+}
+
+.site-header--compact .site-header-inner {
+  align-items: center;
 }
 
 .site-header-copy {
@@ -231,6 +252,14 @@ a {
   gap: 2rem;
 }
 
+.page-footer-cta {
+  border-top: 1px solid var(--line);
+  padding-top: 1.5rem;
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
 .site-footer {
   margin-top: 2rem;
   border-top: 1px solid var(--line);
@@ -265,7 +294,7 @@ a {
 .hero {
   position: relative;
   border: 1px solid var(--glass-border);
-  border-radius: 1.25rem;
+  border-radius: var(--radius-card);
   padding: 2rem;
   background: linear-gradient(135deg, rgba(13, 26, 22, 0.8), rgba(6, 9, 10, 0.9));
   box-shadow: 
@@ -296,6 +325,22 @@ a {
   max-width: 76ch;
   color: var(--ink-soft);
   font-size: 1.05rem;
+}
+
+/* Compact hero for sub-pages — thin banner, title-only */
+.hero-page {
+  padding: 1.1rem 1.5rem;
+  gap: 0.35rem;
+}
+
+.hero-page h2 {
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  line-height: 1.2;
+}
+
+.hero-page .kicker {
+  margin-bottom: 0.15rem;
+  font-size: 0.78rem;
 }
 
 .hero-copy {
@@ -414,7 +459,7 @@ a {
 .card {
   position: relative;
   border: 1px solid var(--line);
-  border-radius: 1.25rem;
+  border-radius: var(--radius-card);
   background: linear-gradient(145deg, var(--surface-primary), var(--surface));
   padding: 1.5rem;
   box-shadow: 
@@ -539,7 +584,7 @@ a {
 .panel {
   position: relative;
   border: 1px solid var(--line);
-  border-radius: 1.5rem;
+  border-radius: var(--radius-panel);
   background: linear-gradient(180deg, var(--surface-primary), var(--surface));
   padding: 2rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -595,6 +640,12 @@ a {
   margin-bottom: 0.5rem;
 }
 
+.faq-sticky-nav {
+  position: sticky;
+  top: var(--header-height);
+  padding: 0.6rem 1rem;
+}
+
 .faq-list {
   display: grid;
   gap: 1rem;
@@ -602,7 +653,7 @@ a {
 
 .faq-item {
   border: 1px solid var(--line);
-  border-radius: 1rem;
+  border-radius: var(--radius-card);
   background: var(--surface-primary);
   padding: 1.5rem;
   display: grid;
@@ -667,6 +718,136 @@ a {
   background: var(--accent-soft);
   color: var(--accent);
   border-color: var(--accent-glow);
+}
+
+/* Phases timeline */
+.phases-track {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.phases-track-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--surface-primary);
+  padding: 0.6rem 1rem;
+  flex: 1;
+  min-width: 160px;
+  transition: border-color 200ms ease, background 200ms ease;
+}
+
+.phases-track-item:hover {
+  border-color: var(--accent-glow);
+  background: var(--surface-contrast);
+}
+
+.phases-track-num {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-glow);
+  color: var(--accent-strong);
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.phases-track-label {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.phases-list {
+  display: grid;
+  gap: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.phases-list-item {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+.phases-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1.5rem;
+}
+
+.phases-num {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  border: 2px solid var(--accent-strong);
+  color: var(--accent-strong);
+  font-weight: 700;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.phases-connector {
+  flex: 1;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-glow), var(--line));
+  margin-top: 0.5rem;
+  border-radius: 1px;
+}
+
+.phases-card {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.phase-details {
+  border-top: 1px dashed var(--line);
+  padding-top: 0.75rem;
+}
+
+.phase-details-summary {
+  cursor: pointer;
+  color: var(--accent-strong);
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: var(--font-space-grotesk), sans-serif;
+  letter-spacing: 0.02em;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  user-select: none;
+}
+
+.phase-details-summary::-webkit-details-marker {
+  display: none;
+}
+
+.phase-details-summary::before {
+  content: "▶";
+  font-size: 0.65rem;
+  transition: transform 200ms ease;
+}
+
+details[open] .phase-details-summary::before {
+  transform: rotate(90deg);
 }
 
 .timeline {
@@ -1142,6 +1323,27 @@ a {
   animation: pulseNode 6s ease-in-out infinite;
 }
 
+.guide-index-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.guide-total-badge,
+.guide-progress-badge {
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  font-weight: 500;
+  font-family: var(--font-space-grotesk), sans-serif;
+}
+
+.guide-progress-badge {
+  opacity: 0.6;
+  font-weight: 400;
+}
+
 .guide-layout {
   display: grid;
   grid-template-columns: 280px minmax(0, 1fr);
@@ -1151,7 +1353,7 @@ a {
 
 .guide-index {
   position: sticky;
-  top: 8.2rem;
+  top: calc(var(--header-height) + 0.5rem);
 }
 
 .guide-index ol {
@@ -1177,7 +1379,7 @@ a {
 }
 
 .guide-topic {
-  scroll-margin-top: 8.4rem;
+  scroll-margin-top: calc(var(--header-height) + 0.75rem);
   display: grid;
   gap: 0.55rem;
 }
@@ -1503,7 +1705,7 @@ a {
 
 .home-anchor-nav {
   position: sticky;
-  top: 7.35rem;
+  top: var(--header-height-full);
   z-index: 9;
   background: rgba(12, 24, 20, 0.92);
 }
